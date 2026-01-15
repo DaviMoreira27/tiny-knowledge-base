@@ -101,6 +101,22 @@ files = [
 gssauth = ["gssapi ; platform_system != \"Windows\"", "sspilib ; platform_system == \"Windows\""]
 
 [[package]]
+name = "asyncpg-stubs"
+version = "0.31.1"
+description = "asyncpg stubs"
+optional = false
+python-versions = "<4.0,>=3.9"
+groups = ["main"]
+files = [
+    {file = "asyncpg_stubs-0.31.1-py3-none-any.whl", hash = "sha256:96c0cf3786948f313207b990d26bf3430daf385ca2913ba65d9dd0ede6bf8bf4"},
+    {file = "asyncpg_stubs-0.31.1.tar.gz", hash = "sha256:6d7342417f867365c98b67d5ae40cb57ce6b2a9eb921fff39d9296961fca18be"},
+]
+
+[package.dependencies]
+asyncpg = ">=0.31,<0.32"
+typing-extensions = ">=4.13.0,<5.0.0"
+
+[[package]]
 name = "certifi"
 version = "2026.1.4"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -1307,4 +1323,4 @@ cffi = ["cffi (>=1.17,<2.0) ; platform_python_implementation != \"PyPy\" and pyt
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13,<4.0.0"
-content-hash = "faf5f5f002f212143b1284be913af19d8d4aa2f801fe6433ebfda821915eca7b"
+content-hash = "c60a16433dc780dad9e49fb21af6429cdfae7270e928d1b16770e5b020e93097"

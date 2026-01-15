@@ -10,7 +10,8 @@ requires-python = ">=3.13,<4.0.0"
 dependencies = [
     "langchain (>=1.2.4)",
     "asyncpg (>=0.31.0)",
-    "python-dotenv (>=1.2.1)"
+    "python-dotenv (>=1.2.1)",
+    "asyncpg-stubs (>=0.31.1)"
 ]
 
 [tool.poetry]
