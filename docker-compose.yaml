@@ -1,0 +1,40 @@
+services:
+  app:
+    build: .
+    container_name: tkb
+    depends_on:
+      - postgres
+      - chroma
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5431/app_db
+      CHROMA_HOST: chroma
+      CHROMA_PORT: 8000
+    volumes:
+      - .:/app
+    command: python main.py
+
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: app_db
+    ports:
+      - "5431:5431"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  chroma:
+    image: chromadb/chroma:latest
+    container_name: chroma
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - chroma_data:/data
+
+volumes:
+  postgres_data:
+  chroma_data:
