@@ -11,7 +11,8 @@ dependencies = [
     "langchain (>=1.2.4)",
     "asyncpg (>=0.31.0)",
     "python-dotenv (>=1.2.1)",
-    "asyncpg-stubs (>=0.31.1)"
+    "asyncpg-stubs (>=0.31.1)",
+    "SQLAlchemy (>=2.0.45)"
 ]
 
 [tool.poetry]
