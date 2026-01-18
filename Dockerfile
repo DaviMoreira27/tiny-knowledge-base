@@ -7,18 +7,21 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends curl build-essential \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    libpq-dev \
+    curl \
     && rm -rf /var/lib/apt/lists/*
 
+# Poetry
 RUN curl -sSL https://install.python-poetry.org | python3 -
-
 ENV PATH="/root/.local/bin:$PATH"
 
 COPY pyproject.toml poetry.lock ./
-
-RUN poetry install --no-root
+RUN poetry install
 
 COPY . .
 
-CMD ["python", "main.py"]
+EXPOSE 8000
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
